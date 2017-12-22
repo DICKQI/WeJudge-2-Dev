@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../semantic/dist/semantic.min.css">
+    <script src="../build/wejudge.js"></script>
+    <script src="../semantic/dist/semantic.min.js"></script>
+    <script>
+        window.haha = function () {
+            
+        }
+    </script>
+    <style>
+        .page_container{
+            width: 98%;
+            margin: 0 auto;
+        }
+    </style>
+    <title>(Demo) WeJudge基础题目集 - WeJudge</title>
+</head>
+<body>
+<!--一级导航-->
+<div class="ui inverted stackable menu" style="border-radius: 0;">
+    <div class="ui inverted stackable menu">
+        <div class="item"><img class="ui" src="static/images/logo_flat.png" width="104" height="24" alt=""></div>
+        <a class="active item">题目中心</a>
+        <a class="item">在线教学</a>
+        <a class="item">在线比赛</a>
+        <a class="item">帮助中心</a>
+        <a class="item">北师ACM协会</a>
+    </div>
+    <div class="ui right inverted stackable menu">
+        <a class="item">登录 / 注册</a>
+    </div>
+</div>
+<div class="page_container">
+
+    <div class="ui">
+        <div class="ui stackable grid">
+            <div class="three wide column">
+                <div class="ui vertical secondary pointing menu">
+                    <a class="active item">题目列表</a>
+                    <a class="item">评测记录</a>
+                    <a class="item">发布题目</a>
+                </div>
+            </div>
+            <div class="thirteen wide column">
+                <table class="ui striped table">
+
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>题目名称</th>
+                        <th>发布者</th>
+                        <th>难度</th>
+                        <th>全站正确率</th>
+                        <th>我的正确率</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1000</td>
+                            <td><a href="">两整数相加</a></td>
+                            <td>LanceLRQ</td>
+                            <td><div class="ui rating" data-rating="3" data-max-rating="3"></div></td>
+                            <td>49.04% (51 / 104)</td>
+                            <td>50.00% (1 / 2)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="ui pagination menu">
+                    <a class="item">
+                        <i class="chevron left icon"></i>
+                    </a>
+                    <a class="active item">
+                        1
+                    </a><a class="item">
+                        2
+                    </a>
+                    <a class="item">
+                        3
+                    </a>
+                    <a class="item">
+                        4
+                    </a>
+                    <a class="item">
+                        <i class="chevron right icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(function () {
+        $('.rating').rating('disable');
+    })
+</script>
+<!--二级导航-->
+</body>
+</html>

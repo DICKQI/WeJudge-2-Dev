@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .step1 {
+            animation :bounceIn 0.1s linear;
+            transform: translateY(-50px);
+        }
+        .step2 {
+            animation :bounceOut 0.1s linear;
+            transform: translateY(0);
+        }
+        @keyframes bounceIn{
+            0%{
+                transform: translateY(0);
+            }
+            100%{
+                transform: translateY(-50px);
+            }
+        }
+        @keyframes bounceOut{
+            0%{
+                transform: translateY(-50px);
+            }
+            100%{
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript" src="https://unpkg.com/vue@2.4.2"></script>
+</head>
+<body>
+<div class="container" id="app">
+    <div class="panel panel-default" style="position: absolute; top: 25%; left: 50%; width: 640px; margin-left: -320px;">
+        <div class="panel-heading">
+            <h3 class="panel-title">提示</h3>
+        </div>
+        <div class="panel-body" style="height: 140px;">
+            <h3>{{msg}}</h3>
+        </div>
+        <div class="panel-footer" style="text-align: right;" >
+            <a class="btn"
+                v-bind:class="[btn_title1 == '是的' ? 'btn-primary' : 'btn-default']"
+                @mouseover="mouseOver2"
+                @click="onclick">{{btn_title1}}
+            </a>
+            <a class="btn"
+                v-bind:class="[{'step1': step1}, {'step2': step2}, btn_title2 == '是的' ? 'btn-primary' : 'btn-default']"
+                style="position: relative;"
+                @mouseover="mouseOver"
+                @click="onclick"
+                v-on:animationend="animationend">{{btn_title2}}
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            msg: "你是不是喜欢我？",
+            step1: false,
+            step2: false,
+            animating: false,
+            btn_title1: "是的",
+            btn_title2: "不是"
+        },
+        methods:{
+            onclick: function(e){
+                var val = e.target.innerText.trim();
+                if(val === '是的'){
+                    this.msg = "这么巧吗~其实我也喜欢你^.^"
+                }else{
+                    this.msg = "我不管我不管我就是喜欢你！"
+                }
+            },
+            mouseOver: function (e) {
+                if(!this.animating && !this.step1){
+                    this.animating = true;
+                    this.step1 = true;
+                }
+                if(!this.animating && !this.step2){
+                    this.animating = true;
+                    this.step2 = true;
+                }
+                if(!this.animating && this.step1 && this.step2){
+                    if(this.btn_title2 !== "是的"){
+                        var t = this.btn_title1;
+                        this.btn_title1 = this.btn_title2;
+                        this.btn_title2 = t;
+                    }
+                }
+            },
+            mouseOver2: function () {
+                if(this.btn_title1 !== "是的"){
+                    var t = this.btn_title1;
+                    this.btn_title1 = this.btn_title2;
+                    this.btn_title2 = t;
+                }
+            },
+            animationend: function () {
+                this.animating = false;
+            }
+        }
+    });
+    window.onbeforeunload = function(){
+        return "别走嘛>.< \n我都真心向你发问了，回答一下嘛~";
+    };
+</script>
+</body>
+</html>

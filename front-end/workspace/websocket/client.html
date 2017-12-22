@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="socket.io.min.js"></script>
+    <script type="text/javascript">
+
+        Notification.requestPermission(function(status) {
+            //status是授权状态，如果用户允许显示桌面通知，则status为'granted'
+            console.log('status: ' + status);
+            //permission只读属性
+            var permission = Notification.permission;
+            //default 用户没有接收或拒绝授权请求 不能显示通知
+            //granted 用户接受授权请求 允许显示通知
+            //denied  用户拒绝授权请求 不允许显示通知
+        });
+
+        var socket = io('ws://localhost:8081/contest');
+        socket.on('notice', function (data) {
+            if (Notification.permission === 'granted') {
+                var n = new Notification("比赛公告", {
+                    body: data.content
+                });
+                n.onclick = function(){
+                    window.focus();
+                }
+            }
+        });
+        socket.on('error', function (msg) {
+            console.log(msg);
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

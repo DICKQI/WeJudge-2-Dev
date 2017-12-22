@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../semantic/dist/semantic.min.css">
+    <script src="../build/wejudge.js"></script>
+    <script src="../semantic/dist/semantic.min.js"></script>
+    <script src="static/jquery.address.js"></script>
+    <script>
+        $(function () {
+            //document.getElementById("Card1").innerHTML = "AAA";
+            $("#Card1").animate({
+                top: "500px"
+            }, 1000);
+
+        })
+    </script>
+    <style>
+        .page_container{
+            width: 98%;
+            margin: 0 auto;
+        }
+        .ui.list > li {
+            margin: 10px auto;
+        }
+    </style>
+    <title>(Demo) 2001. 斯捷同学办卡记 - WeJudge基础题目集 - WeJudge</title>
+</head>
+<body>
+<!--一级导航-->
+<div class="ui inverted stackable menu" style="border-radius: 0;">
+    <div class="ui inverted stackable menu">
+        <div class="item"><img class="ui" src="static/images/logo_flat.png" width="104" height="24" alt=""></div>
+        <a class="active item">题目中心</a>
+        <a class="item">在线教学</a>
+        <a class="item">在线比赛</a>
+        <a class="item">帮助中心</a>
+        <a class="item">北师ACM协会</a>
+    </div>
+    <div class="ui right inverted stackable menu">
+        <a class="item">登录 / 注册</a>
+    </div>
+</div>
+<div class="ui container">
+    <div style="margin: 32px auto;">
+        <h2>2001. 斯捷同学办卡记</h2>
+    </div>
+    <div class="ui top tabular menu" id="sub">
+        <a class="active item" data-tab="problem_description">
+            <i class="book icon"></i>
+            题目描述
+        </a>
+        <a class="item" data-tab="judge_description">
+            <i class="cloud icon"></i>
+            评测描述
+        </a>
+        <a class="item" data-tab="my_status">
+            <i class="tasks icon"></i>
+            我的提交
+        </a>
+        <a class="item" data-tab="counter">
+            <i class="signal icon"></i>
+            评测统计
+        </a>
+    </div>
+    <div class="ui active tab" data-tab="problem_description">
+        <div class="content" style="line-height: 2.0em; font-size: 1.1em !important;">
+            <div class="ui right floated segment" style="position:absolute; top: 0; max-width: 240px;" id="Card1">
+                <ul class="ui list">
+                    <li>通过次数： <strong>20</strong> </li>
+                    <li>提交次数： <strong>100</strong></li>
+                    <li>题目难度： <strong>一般</strong></li>
+                    <li>题目来源： <strong>北京师范大学珠海分校ACM程序设计竞赛协会</strong></li>
+                </ul>
+            </div>
+           <span style="font-size:14px">斯捷小同学在丢了几个月的卡后,在宿管阿姨的唠唠叨叨下总算下定决心去补办校园卡了。一大清早斯捷这个小伙子就跑去农行了，结果农行门都还没开呢，门口就排了一大群人了。<br>
+办好卡的斯捷同学坐在一旁，闲得蛋疼的他决定抱着电脑边敲代码边记录来农行办业务的人以及他们的行为。<br>
+来农行办业务的人一共有三种行为:</span>
+            <ol>
+                <li><span style="font-size:14px">安安心心、踏踏实实排队的小伙子，直到业务办完才会离开</span></li>
+                <li><span style="font-size:14px">不安安心心、不踏踏实实的小伙子，排队还没轮到他就跑了(小伙子，你这样可不行啊)</span></li>
+                <li><span style="font-size:14px">大大方方、乐于助人的小伙子，就算中途放弃也要把叫号票给别人(票会给除了自己的随机一个人)</span></li>
+            </ol>
+            <span style="font-size:14px"> 请你帮助斯捷同学，打印成功办理业务的人员名单(按叫号顺序输出)</span><br>
+            <img alt="" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1492710549646&amp;di=f7e533a8eb470c58b266beeeee75aa4c&amp;imgtype=0&amp;src=http%3A%2F%2Fimg3.cache.netease.com%2Fhouse%2F2014%2F7%2F11%2F20140711151634291ac.jpg" style="height:362px; width:440px">
+
+            <!-- Info Area -->
+            <h4>输入要求</h4>
+            <div class="ui segment"><span style="font-size:14px">每次先输入一个整数T（1 &lt;= T &lt;= 30），接下来T组测试数据<br>
+对于每一组数据，第一排有一个整数n（1 &lt;= n &lt;= 10000）表示斯捷同学记录了他在银行这段时间来办理卡的同学们进行的n次操作，接下来n行数据，每一行肯定有两个整数a，b（1 &lt;= a &lt;= 3）（1 &lt;= b &lt;= n），可能还有一个整数c（1 &lt;= c &lt;= n &amp;&amp; c != b）。<br>
+当a等于1时，表示b同学刚来农行,取了一个号并排队等待<br>
+当a等于2时，表示b同学还没办理业务就跑了,此时他原本的号码会报废,并且他不会把号码给别人<br>
+当a等于3时，再读入一个整数c表示b同学把号给了c同学并跑路了,此时c同学会将<span style="color:#FF0000">两张号中较大的号</span>扔进垃圾桶(当然没有人会去翻垃圾桶的,所以不会有人捡到他扔掉的号码)</span>
+            &nbsp;</div>
+            <h4>输出要求</h4>
+            <div class="ui segment">
+                每次输出占一行，按叫号顺序输出成功办理业务的人员名单,每个数字后面都有空格
+            </div>
+
+
+
+        </div>
+    </div>
+    <div class="ui tab" data-tab="judge_description">
+        <div class="ui two column stackable grid">
+            <div class="column">
+                <h4>输入示例</h4>
+                <div class="ui red segment">
+                   <code>2<br>
+                       6<br>
+                       1 1<br>
+                       1 2<br>
+                       1 3<br>
+                       2 3<br>
+                       1 4<br>
+                       3 1 4<br>
+                       6<br>
+                       1 1<br>
+                       1 2<br>
+                       1 3<br>
+                       1 4<br>
+                       3 4 1<br>
+                       2 3</code>
+                </div>
+            </div>
+            <div class="column">
+                <h4>输出示例</h4>
+                <div class="ui blue segment">
+                    <code>4 2<br />
+                        1 2 </code>
+                </div>
+            </div>
+        </div>
+        <h4>资源限制</h4>
+        <div class="ui black segment"><div class="ui cards"><div class="card"><div class="content"><img class="ui avatar circular image" src="https://www.wejudge.net/static/images/language/1.jpg"><!-- react-text: 43 -->GNU C<!-- /react-text --><div class="description"><br><!-- react-text: 46 -->时间限制：<!-- /react-text --><!-- react-text: 47 -->3000<!-- /react-text --><!-- react-text: 48 --> MS<!-- /react-text --><br><!-- react-text: 50 -->内存限制：<!-- /react-text --><!-- react-text: 51 -->32768<!-- /react-text --><!-- react-text: 52 --> KB<!-- /react-text --></div></div></div><div class="card"><div class="content"><img class="ui avatar circular image" src="https://www.wejudge.net/static/images/language/2.jpg"><!-- react-text: 56 -->GNU C++<!-- /react-text --><div class="description"><br><!-- react-text: 59 -->时间限制：<!-- /react-text --><!-- react-text: 60 -->3000<!-- /react-text --><!-- react-text: 61 --> MS<!-- /react-text --><br><!-- react-text: 63 -->内存限制：<!-- /react-text --><!-- react-text: 64 -->32768<!-- /react-text --><!-- react-text: 65 --> KB<!-- /react-text --></div></div></div><div class="card"><div class="content"><img class="ui avatar circular image" src="https://www.wejudge.net/static/images/language/4.jpg"><!-- react-text: 69 -->Java<!-- /react-text --><div class="description"><br><!-- react-text: 72 -->时间限制：<!-- /react-text --><!-- react-text: 73 -->6000<!-- /react-text --><!-- react-text: 74 --> MS<!-- /react-text --><br><!-- react-text: 76 -->内存限制：<!-- /react-text --><!-- react-text: 77 -->262144<!-- /react-text --><!-- react-text: 78 --> KB<!-- /react-text --></div></div></div></div></div>
+    </div>
+
+    <div class="ui divider"></div>
+    <form class="ui form">
+        <div class="inline field">
+            <div class="ui dropdown selection" tabindex="0"><select><!-- react-text: 28 --><!-- /react-text --><option value="1">C语言 (GNU C)</option><option value="2">C++ (GNU CPP)</option><option value="4">Java 1.8</option><option value="8">Python 2.7</option><option value="16">Python 3.5</option></select><i class="dropdown icon"></i><div class="text">C语言 (GNU C)</div><div class="menu" tabindex="-1"><div class="item active selected" data-value="1">C语言 (GNU C)</div><div class="item" data-value="2">C++ (GNU CPP)</div><div class="item" data-value="4">Java 1.8</div><div class="item" data-value="8">Python 2.7</div><div class="item" data-value="16">Python 3.5</div></div></div>
+            <a href="" class="ui icon button"><i class="refresh icon"></i></a>
+            <a href="" class="ui icon blue button"><i class="code icon"></i></a>
+        </div>
+
+        <div class=" field">
+            <textarea name="" id="" rows="25"></textarea>
+        </div>
+
+        <div class=" field">
+            <div class="ui blue button">运行代码</div>
+        </div>
+    </form>
+
+</div>
+
+<script>
+    $(function () {
+        $("#sub .item").tab({history: true});
+        $(".ui.dropdown").dropdown();
+    });
+</script>
+<!--二级导航-->
+</body>
+</html>

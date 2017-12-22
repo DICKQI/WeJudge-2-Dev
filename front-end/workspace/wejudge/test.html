@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>body</title>
+    <style>
+        .sel{
+            width: 200px;
+            height:20px;
+            border: 1px solid #ccc;
+            border-top: 0;
+            text-align: center;
+            font-size: 0.8rem
+        }
+        .sel:first-child {
+            border-top:1px solid #ccc;
+        }
+        .container {
+            display: none;
+        }
+        .container_display{
+            display: block !important;
+        }
+
+    </style>
+</head>
+<body>
+<div id="select"></div>
+<script>
+    function select(options){
+        var sel = document.querySelector(options.srcNode);
+        sel.innerHTML = "<input id='view' class='sel' value='"+options.data[0]+"' /><div id='container' class='container'></div>";
+        var container = document.getElementById("container");
+        var view = document.getElementById("view");
+        var list = "";
+        for(var i = 0 ;i < options.data.length; i++){
+            list += "<div class='sel sel_item'>" + options.data[i] + "</div>";
+        }
+        container.innerHTML = list;
+        view.onclick = function () {
+            view.value = "";
+            container.className = "container_display";
+        };
+        var lists = document.getElementsByClassName("sel_item");
+        for(var j = 0; j < lists.length; j++){
+            lists[j].onclick = function () {
+                view.value = this.innerText;
+                container.className = "container";
+                options.onChange(view)
+            }
+        }
+    }
+
+    // eg
+    select({
+                srcNode: '#select',
+                data: ['北京','上海','杭州'],
+                onChange: (ev)=>{
+                console.log(ev.value);
+    }
+    })
+</script>
+</body>
+</html>

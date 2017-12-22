@@ -1,0 +1,48 @@
+{
+    "time_limit": {
+        "1": 1000,
+        "2": 1000,
+        "4": 2000,
+        "8": 2000,
+        "16": 2000
+    },
+    "mem_limit": {
+        "1": 32768,
+        "2": 32768,
+        "4": 256000,
+        "8": 128000,
+        "16": 128000
+    },
+    "test_cases": [
+        {
+            "name": "",
+            "handle": "{{uuid}}",
+            "order": 0,
+            "update_time": 0,
+            "available": true,
+            "visible": false,
+            "score_precent": 0,
+            "pre_judge": false
+        }
+    ],
+    "demo_cases": {
+        "1": [
+                {
+                "name": "",
+                "handle": "{{uuid}}"
+                }
+            ]
+    },
+    "library_cases": [],
+    "judge_type": 0,
+    "env_enable": false,
+    "special_judge": 0,
+    "special_judger_program": ""
+}
+/*
+
+  library_cases: 参与编译的文件
+  judge_type: 0 - normal正常判题模式; 1 - fill 填空模式（此时demo_cases有效，表示不同的空位
+  special_judge:  int，0: disable ; 1: checker ; 2: interactive
+
+*/

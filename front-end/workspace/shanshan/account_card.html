@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../semantic/dist/semantic.min.css">
+    <script src="../semantic/dist/semantic.min.js"></script>
+    <style>
+        /*
+
+        wejudge.account.space.showAccountCard('master', 1)
+
+        */
+
+        /* .user_card_ */
+        .user_card {
+            width: 100% !important;;
+            border: 0 !important;
+            box-shadow: none !important;
+        }
+        .user_card_image{
+            padding: 7%;
+        }
+        .user_card_content{
+            border-top: 0 !important;
+            text-align: center;
+        }
+        .user_card_statistics{
+            width: 180px !important;
+            margin: 15% auto !important;
+        }
+        .user_card_statistics > .statistic{
+            margin: 0  !important;
+        }
+    </style>
+</head>
+<body>
+<br>
+<br>
+    <div class="ui container" >
+        <div class="ui card">
+            <div class="user_card_image">
+                <img class="ui centered circular image" width="120" height="120" src="http://alpha.dev.wejudge.net/static/images/user_placeholder.png">
+            </div>
+            <div class="content user_card_content">
+                <a class="header">lalala</a>
+                <div class="meta">
+                    <span class="date">@shanshan</span>
+                </div>
+                <br />
+                <div class="description">
+                    这人很懒，什么也没写...
+                </div>
+                <div class="ui two tiny statistics user_card_statistics">
+                    <div class="  statistic">
+                        <div class="value">
+                            22
+                        </div>
+                        <div class="label">
+                            通过
+                        </div>
+                    </div>
+                    <div class="statistic">
+                        <div class="value">
+                            12
+                        </div>
+                        <div class="label">
+                            访问
+                        </div>
+                    </div>
+                </div>
+                <a href="" class="ui fluid huge blue button">
+                    <i class="send icon"></i>
+                    个人空间
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
